@@ -8,7 +8,7 @@ export const registerUser = async (req,res) =>{
             return res.status(400).json({message: "User already exists"});
         }
         //hashpassword
-        const hashedpassword = await brcrypt.hash(password,10);
+        const hashedpassword = await bcrypt.hash(password,10);
         
         //create new user
         const newUser = await User.create({
