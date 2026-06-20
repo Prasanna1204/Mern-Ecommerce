@@ -45,7 +45,7 @@ export const loginUser = async (req,res) =>{
         }
         res.status(200).json({
             message: "User logged in successfully",
-            token: generateToken(findUser._id),
+            token: generateToken(findUser),
             user: {
                 id: findUser._id,
                 name: findUser.name,
