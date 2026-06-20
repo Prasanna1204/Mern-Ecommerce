@@ -1,5 +1,6 @@
 import User from "../Models/User.js";
 import bcrypt from "bcryptjs";
+import generateToken from "../utils/generateToken.js";
 
 export const registerUser = async (req,res) =>{
     try{
@@ -44,6 +45,7 @@ export const loginUser = async (req,res) =>{
         }
         res.status(200).json({
             message: "User logged in successfully",
+            token: generateToken(findUser._id),
             user: {
                 id: findUser._id,
                 name: findUser.name,
