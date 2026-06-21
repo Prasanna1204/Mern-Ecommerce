@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import ConnectDB from "./config/db.js";
 import authRoutes from "./Routes/authRoutes.js";
 import productRoutes from "./Routes/productRoutes.js";
+import cartRoutes from "./Routes/cartRoutes.js";
 dotenv.config();
 ConnectDB();
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/cart",cartRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
