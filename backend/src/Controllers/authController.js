@@ -1,4 +1,4 @@
-import User from "../Models/User.js";
+import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import generateToken from "../utils/generateToken.js";
 
@@ -23,6 +23,7 @@ export const registerUser = async (req,res) =>{
                 id: newUser._id,
                 name: newUser.name,
                 email: newUser.email,
+
             }
         });
     }
@@ -50,6 +51,7 @@ export const loginUser = async (req,res) =>{
                 id: findUser._id,
                 name: findUser.name,
                 email: findUser.email,
+                role: findUser.role
             }
         });
     }catch(error){

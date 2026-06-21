@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-//import User from "../models/User.js";
+import User from "../models/User.js";
 
 const authMiddleware = async (req, res, next) =>{
     const token = req.headers.authorization?.split(" ")[1];
@@ -11,7 +11,7 @@ const authMiddleware = async (req, res, next) =>{
         req.user = await User.findById(decoded.id).select("-password"); //"-" removes the password field from the user object
         next();
     }catch(error){
-        return res.status(401).json({message: "Invalid token:"});
+        return res.status(401).json({message: error.message});
     }
 }
 export default authMiddleware;
