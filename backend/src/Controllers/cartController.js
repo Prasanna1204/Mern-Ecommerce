@@ -50,6 +50,11 @@ export const getCart= async(req,res)=>{
                 message: "cart not found"
             })
         }
+        if(cart.items.length === 0){
+            return res.status(404).json({
+                message: "cart is empty"
+            })
+        }
         res.status(200).json({
             success: true,
             cart
