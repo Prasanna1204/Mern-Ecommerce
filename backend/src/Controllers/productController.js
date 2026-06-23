@@ -13,7 +13,7 @@ export const createProduct = async(req,res) =>{
             images,
         });
         res.status(201).json({
-            message: "Product created successfully",
+            message: "Product Created Successfully",
             product: newProduct,
         })
     }catch(error){
