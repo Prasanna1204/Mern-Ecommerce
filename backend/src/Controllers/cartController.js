@@ -108,6 +108,11 @@ export const deleteCart = async(req,res)=>{
                 message: "cart not found"
             })
         }
+        if(cart.items.length === 0){
+            return res.status(404).json({
+                message: "cart is empty"
+            })
+        }
         cart.items = cart.items.filter(
             item=> item.productID.toString() !== productID
         );
