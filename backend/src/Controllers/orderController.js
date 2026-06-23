@@ -18,7 +18,7 @@ export const createOrder = async(req,res)=>{
                 message: "cart is empty"
             })
         }
-        
+
         for (const item of cart.items) {
         const product = await Product.findOneAndUpdate(
             {
@@ -53,7 +53,7 @@ export const createOrder = async(req,res)=>{
         cart.items = []
         await cart.save();
         res.status(201).json({
-            message: "order Created",
+            message: "Order Created",
             order
         })
 
